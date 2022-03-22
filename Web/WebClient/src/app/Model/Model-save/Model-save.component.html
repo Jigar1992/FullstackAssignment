@@ -1,0 +1,43 @@
+<div style="width: 50%;text-align: center; border: 1px solid;" >
+<form (ngSubmit)="saveModel(modelFrm)" [formGroup]="modelFrm">
+  <div class="container">
+    <h1>Model</h1>
+    <p>Please fill in this form to create a Model.</p>
+    <hr>
+
+    <label for="email"><b>Model Name</b></label>
+    <input type="text" placeholder="Enter Model Name" formControlName="ModelName">
+    <span style="color: red;" *ngIf="modelFrm.get('ModelName').invalid && modelFrm.get('ModelName').touched || submitted">
+      Model Name required
+    </span>
+
+    <br>
+    <br>
+
+    <label for="psw"><b>Manufacturer</b></label>
+    <select formControlName="ManufacturerId">
+      <option *ngFor="let item of list" [ngValue]="item.Id">
+        {{item.ManufacturerName}}
+      </option>
+    </select>
+    <span style="color: red;" *ngIf="modelFrm.get('ManufacturerId').invalid && modelFrm.get('ManufacturerId').touched || submitted">
+      Manufacturer is required
+    </span>
+
+
+    <br>
+    <br>
+    <label for="email"><b>First Production Date</b></label>
+    <input type="date" placeholder="Enter First Production Date" formControlName="FirstProductionDate">
+    <span style="color: red;" *ngIf="modelFrm.get('FirstProductionDate').invalid && modelFrm.get('FirstProductionDate').touched || submitted">
+      First Production Date is required
+    </span>
+    <br>
+    <br>
+
+    <button type="submit" class="registerbtn">Save</button>
+  </div>
+  
+
+</form>
+</div>

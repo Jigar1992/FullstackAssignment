@@ -1,0 +1,37 @@
+
+
+<div style="width: 50%;text-align: center; border: 1px solid;">
+
+  <div class="container">
+    <h1>Login</h1>
+    <hr>
+
+
+    <form (ngSubmit)="loginUser(userLoginFrm)" [formGroup]="userLoginFrm">
+
+      <input placeholder="Username" type="text" formControlName="UserName" maxlength="100" id="Email">
+      <span style="color: red;" *ngIf="userLoginFrm.get('UserName').invalid && userLoginFrm.get('UserName').touched || submitted">
+        Username required
+      </span>
+
+      <br>
+      <br>
+
+
+      <input type="password" placeholder="Password" formControlName="Password" id="Password" maxlength="25"
+             [type]="hide ? 'password' : 'text'">
+
+      <span style="color: red;" *ngIf="userLoginFrm.get('Password').invalid && userLoginFrm.get('Password').touched || submitted">
+        Password required
+      </span>
+
+
+
+      <br>
+      <br>
+      <button type="submit" class="registerbtn">Login</button>
+      <div class="clearfix"></div>
+    </form>
+  </div>
+
+</div>

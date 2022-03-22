@@ -1,0 +1,40 @@
+
+
+<h1>A Manufacturer Table</h1>
+<h4>Manufacturer  <a class="btn btn-danger pull-right" [routerLink]="['/Manufacturer-save']">Add</a></h4>
+
+<table id="customers">
+  <tr>
+    <th>Id</th>
+    <th>Manufacturer Name</th>
+    <th>Country</th>
+    <th>Action</th>
+  </tr>
+  <tbody>
+    <tr *ngFor="let item of manufacturerList; index as i">
+      <td>
+        {{i+1}}
+      </td>
+      <td>
+        {{item.ManufacturerName}}
+      </td>
+      <td *ngIf="item.Country == 1">
+        India
+      </td>
+      <td *ngIf="item.Country == 2">
+        South Africa
+      </td>
+     
+      <td class="td-actions">
+        <button type="button" class="btn btn-primary btn-link btn-sm btn-just-icon" [routerLink]="['/Manufacturer-save',  { id: item.Id } ]">
+         Edit
+        </button>
+        <button type="button"  (click)="deleteManufacturer(item.Id);"   class="btn btn-danger btn-link btn-sm btn-just-icon">
+          Delete
+        </button>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+

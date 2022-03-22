@@ -1,0 +1,41 @@
+
+
+  <h1>A Vehicles Table</h1>
+  <h4>Vehicles  <a class="btn btn-danger pull-right" [routerLink]="['/Vehicles-save']">Add</a></h4>
+
+<table id="customers">
+  <tr>
+    <th>Id</th>
+    <th>Model Name</th>
+    <th>Status</th>
+    <th>Year</th>
+    <th>Action</th>
+  </tr>
+  <tbody>
+    <tr *ngFor="let item of vehiclesList; index as i">
+      <td>
+        {{i+1}}
+      </td>
+      <td>
+        {{item.Model.ModelName}}
+      </td>
+      <td>
+        {{item.Status.StatusName}}
+      </td>
+      <td>
+        {{item.Year}}
+      </td>
+     
+      <td class="td-actions">
+        <button type="button" class="btn btn-primary btn-link btn-sm btn-just-icon" [routerLink]="['/Vehicles-save',  { id: item.Id } ]">
+         Edit
+        </button>
+        <button type="button"  (click)="deleteVehicles(item.Id);"   class="btn btn-danger btn-link btn-sm btn-just-icon">
+          Delete
+        </button>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+

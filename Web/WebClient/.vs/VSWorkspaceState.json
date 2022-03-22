@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\login",
+    "\\src\\app\\Model\\Model-save",
+    "\\src\\app\\services",
+    "\\src\\app\\Vehicles",
+    "\\src\\app\\Vehicles\\Vehicles-list",
+    "\\src\\app\\Vehicles\\Vehicles-save",
+    "\\src\\environments"
+  ],
+  "SelectedNode": "\\src\\app\\login\\login.component.html",
+  "PreviewInSolutionExplorer": false
+}

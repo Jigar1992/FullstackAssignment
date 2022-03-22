@@ -1,0 +1,41 @@
+
+
+<h1>A Model Table</h1>
+<h4>Model  <a class="btn btn-danger pull-right" [routerLink]="['/Model-save']">Add</a></h4>
+
+<table id="customers">
+  <tr>
+    <th>Id</th>
+    <th>Model Name</th>
+    <th>Manufacturer Name</th>
+    <th>First Production Date</th>
+    <th>Action</th>
+  </tr>
+  <tbody>
+    <tr *ngFor="let item of modelList; index as i">
+      <td>
+        {{i+1}}
+      </td>
+      <td>
+        {{item.ModelName}}
+      </td>
+      <td>
+        {{item.Manufacturer.ManufacturerName}}
+      </td>
+      <td>
+        {{item.FirstProductionDate | date: 'dd/MM/yyyy'}}
+      </td>
+     
+      <td class="td-actions">
+        <button type="button" class="btn btn-primary btn-link btn-sm btn-just-icon" [routerLink]="['/Model-save',  { id: item.Id } ]">
+         Edit
+        </button>
+        <button type="button"  (click)="deleteModel(item.Id);"   class="btn btn-danger btn-link btn-sm btn-just-icon">
+          Delete
+        </button>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+

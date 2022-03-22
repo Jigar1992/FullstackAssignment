@@ -1,0 +1,20 @@
+
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+  <div class="navbar" *ngIf="router.url != '' && router.url != '/login'">
+    <a [routerLink]="['/Manufacturer']">Manufacturer</a>
+    <a [routerLink]="['/Model']">Model</a>
+    <a [routerLink]="['/Vehicles']">Vehicles</a>
+
+    <a (click)="logout()">Logout</a>
+  </div>
+  <br>
+  <br>
+  <br>
+  
+<router-outlet></router-outlet>

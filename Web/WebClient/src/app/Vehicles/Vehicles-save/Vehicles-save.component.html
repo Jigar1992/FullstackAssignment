@@ -1,0 +1,55 @@
+<div style="width: 50%;text-align: center; border: 1px solid;" >
+<form (ngSubmit)="saveVehicles(vehiclesFrm)" [formGroup]="vehiclesFrm">
+  <div class="container">
+    <h1>Vehicles</h1>
+    <p>Please fill in this form to create a Vehicles.</p>
+    <hr>
+
+    <label for="email"><b>Status</b></label>
+    <select formControlName="StatusId">
+      <option *ngFor="let item of VehicleStatusList" [ngValue]="item.Id">
+        {{item.StatusName}}
+      </option>
+    </select>
+    <span style="color: red;" *ngIf="vehiclesFrm.get('StatusId').invalid && vehiclesFrm.get('StatusId').touched || submitted">
+      Status is required
+    </span>
+
+    <br>
+    <br>
+
+    <label for="psw"><b>Model</b></label>
+    <select formControlName="ModelId">
+      <option *ngFor="let item of ModelList" [ngValue]="item.Id">
+        {{item.ModelName}}
+      </option>
+    </select>
+    <span style="color: red;" *ngIf="vehiclesFrm.get('ModelId').invalid && vehiclesFrm.get('ModelId').touched || submitted">
+      Model is required
+    </span>
+
+
+    <br>
+    <br>
+    <label for="email"><b>Year</b></label>
+    <input type="number" placeholder="Enter Year" formControlName="Year">
+    <span style="color: red;" *ngIf="vehiclesFrm.get('Year').invalid && vehiclesFrm.get('Year').touched || submitted">
+      Year is required
+    </span>
+    <br>
+    <br>
+
+    <label for="email"><b>Colour</b></label>
+    <input type="color" placeholder="Select colour" formControlName="Colour">
+    <span style="color: red;" *ngIf="vehiclesFrm.get('Colour').invalid && vehiclesFrm.get('Colour').touched || submitted">
+      Colour is required
+    </span>
+    <br>
+    <br>
+
+    <button type="submit" class="registerbtn">Save</button>
+  </div>
+  
+
+</form>
+</div>
