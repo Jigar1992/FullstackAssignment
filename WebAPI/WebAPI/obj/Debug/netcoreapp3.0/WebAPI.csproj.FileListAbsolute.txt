@@ -191,4 +191,3 @@ D:\OfficeProject1\WebAPI\WebAPI\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.
 D:\OfficeProject1\WebAPI\WebAPI\bin\Debug\netcoreapp3.0\System.IdentityModel.Tokens.Jwt.dll
 D:\OfficeProject1\WebAPI\WebAPI\obj\Debug\netcoreapp3.0\WebAPI.MvcApplicationPartsAssemblyInfo.cs
 D:\OfficeProject1\WebAPI\WebAPI\obj\Debug\netcoreapp3.0\WebAPI.MvcApplicationPartsAssemblyInfo.cache
-D:\OfficeProject1\WebAPI\WebAPI\obj\Debug\netcoreapp3.0\WebAPI.csprojAssemblyReference.cache

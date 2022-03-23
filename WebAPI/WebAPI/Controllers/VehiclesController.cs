@@ -16,8 +16,13 @@ namespace WebAPI.Controllers
     public class VehiclesController : ControllerBase
     {
 
-        MyDbContext dbcontext = new MyDbContext();
+        ApplicationDbContext dbcontext;
         private Response responseData = new Response();
+
+        public VehiclesController(ApplicationDbContext applicationDbContext)
+        {
+            dbcontext = applicationDbContext;
+        }
 
         [HttpPost]
         [Route("GetAllVehicles")]
@@ -39,7 +44,7 @@ namespace WebAPI.Controllers
                 }
                 else
                 {
-                    var getVehicles = dbcontext.Vehicles.Include(x => x.Status).Include(x=>x.Model).ToList();
+                    var getVehicles = dbcontext.Vehicles.Include(x => x.Status).Include(x => x.Model).ToList();
 
                     return Ok(getVehicles);
 
@@ -60,12 +65,12 @@ namespace WebAPI.Controllers
         {
             try
             {
-                
+
                 responseData = new Response();
 
                 if (vehicles.Id > 0)
                 {
-                    
+
                     var getvehicles = dbcontext.Vehicles.Where(x => x.Id == vehicles.Id).FirstOrDefault();
 
                     if (getvehicles != null)
@@ -113,7 +118,7 @@ namespace WebAPI.Controllers
             {
                 if (vehicles.Id > 0)
                 {
-                  
+
                     responseData = new Response();
                     var itemToRemove = dbcontext.Vehicles.SingleOrDefault(x => x.Id == vehicles.Id);
 
@@ -148,10 +153,10 @@ namespace WebAPI.Controllers
             responseData = new Response();
             try
             {
-                    var getVehiclesStatus = dbcontext.VehicleStatus.ToList();
+                var getVehiclesStatus = dbcontext.VehicleStatus.ToList();
 
-                    return Ok(getVehiclesStatus);
-                
+                return Ok(getVehiclesStatus);
+
             }
             catch (Exception ex)
             {

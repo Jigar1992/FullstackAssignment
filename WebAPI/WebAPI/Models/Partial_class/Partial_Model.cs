@@ -4,13 +4,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebAPI.Models
 {
-    public partial class Vehicles
+    public partial class Model
     {
         [NotMapped]
-        public List<VehicleStatus> VehicleStatusList { get; set; }
-
-        [NotMapped]
-        public List<Model> ModelList { get; set; }
-        
+        public List<Manufacturer> ManufacturerList { get; set; }
     }
 }

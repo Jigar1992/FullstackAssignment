@@ -16,8 +16,13 @@ namespace WebAPI.Controllers
     public class ModelController : ControllerBase
     {
 
-        MyDbContext dbcontext = new MyDbContext();
+        ApplicationDbContext dbcontext;
         private Response responseData = new Response();
+
+        public ModelController(ApplicationDbContext applicationDbContext)
+        {
+            dbcontext = applicationDbContext;
+        }
 
         [HttpPost]
         [Route("GetAllModel")]
@@ -59,7 +64,7 @@ namespace WebAPI.Controllers
         {
             try
             {
-                
+
                 responseData = new Response();
 
                 if (model.Id > 0)
@@ -129,7 +134,7 @@ namespace WebAPI.Controllers
             {
                 if (model.Id > 0)
                 {
-                  
+
                     responseData = new Response();
                     var itemToRemove = dbcontext.Model.SingleOrDefault(x => x.Id == model.Id);
 
@@ -153,6 +158,6 @@ namespace WebAPI.Controllers
                 responseData.message = ex.Message != null ? ex.Message.ToString() : "server error";
                 return Ok(responseData);
             }
-        } 
+        }
     }
 }

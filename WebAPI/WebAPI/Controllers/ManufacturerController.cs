@@ -15,8 +15,13 @@ namespace WebAPI.Controllers
     public class ManufacturerController : ControllerBase
     {
 
-        MyDbContext dbcontext = new MyDbContext();
+        ApplicationDbContext dbcontext;
         private Response responseData = new Response();
+
+        public ManufacturerController(ApplicationDbContext applicationDbContext)
+        {
+            dbcontext = applicationDbContext;
+        }
 
         [HttpPost]
         [Route("GetAllManufacturer")]
@@ -50,7 +55,7 @@ namespace WebAPI.Controllers
         {
             try
             {
-                
+
                 responseData = new Response();
 
                 if (manufacturer.Id > 0)
@@ -118,7 +123,7 @@ namespace WebAPI.Controllers
             {
                 if (manufacturer.Id > 0)
                 {
-                  
+
                     responseData = new Response();
                     var itemToRemove = dbcontext.Manufacturer.SingleOrDefault(x => x.Id == manufacturer.Id);
 
@@ -142,6 +147,6 @@ namespace WebAPI.Controllers
                 responseData.message = ex.Message != null ? ex.Message.ToString() : "server error";
                 return Ok(responseData);
             }
-        } 
+        }
     }
 }
